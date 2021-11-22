@@ -37,5 +37,4 @@
     ```adb uninstall com.android.todolist```
 ---
 [Android Debug Bridge (adb) ](https://developer.android.com/studio/command-line/adb)
-[Команды adb для Android пользователей](
-https://losst.ru/komandy-adb-dlya-android-polzovatelej)
+[Команды adb для Android пользователей](https://losst.ru/komandy-adb-dlya-android-polzovatelej)
