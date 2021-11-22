@@ -12,7 +12,6 @@ INSERT INTO Clients (id, name, surname, age) VALUES (1, 'Vlad', 'Komlyukov', 26)
 
 DELETE FROM Clients WHERE id = 1;
 
-
 CREATE TABLE Order_all (
   id INT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
