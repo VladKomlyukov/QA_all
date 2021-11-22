@@ -1,7 +1,12 @@
+
 1. Вывести все поля и все строки.
+```sql
 SELECT * FROM Clients;
+```
 2. Вывести всех клиентов в таблице.
+```sql
 SELECT id, name FROM Clients;
+```
 3. Вывести id клиентов.
 SELECT id FROM Clients;
 4. Вывести только имя пользователя клиента;
