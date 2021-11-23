@@ -1,7 +1,6 @@
 <details>
   <summary>Схема БД</summary>
-  ![image_db](https://user-images.githubusercontent.com/89102886/142925743-470faf06-23dc-42c3-8c11-700c4010e08b.png)
-  
+  ![Db_test_vlad](https://user-images.githubusercontent.com/89102886/143135689-2839d434-3487-411d-89f9-c014a32a1c16.png)
 </details>
 
 1. Вывести всех работников, чьи зарплаты есть в базе, вместе с зарплатами.
