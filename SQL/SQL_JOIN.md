@@ -20,14 +20,14 @@ WHERE montly_salary < 2000;
 3. Вывести все зарплатные позиции, но работник по ним не назначен. (ЗП есть, но не понятно, кто её получает.)
 ```sql
 SELECT montly_salary, employee_name
-FROM employess_salary
-LEFT JOIN employess ON employees_salary.employee_id = employess.id
+FROM employees_salary
+LEFT JOIN employess ON employees_salary.employee_id = employees.id
 WHERE employee_name IS NULL;
 ```
 4. Вывести все зарплатные позиции меньше 2000, но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
 ```sql
 SELECT montly_salary, employee_name
-FROM employess_salary
+FROM employees_salary
 LEFT JOIN employess ON employees_salary.employee_id = employess.id
 WHERE montly_salary < 2000 AND employee_name IS NULL;
 ```
@@ -35,20 +35,49 @@ WHERE montly_salary < 2000 AND employee_name IS NULL;
 ```sql
 SELECT employee_name, montly_salary
 FROM employees
-LEFT JOIN employess_salary ON employees.id = employess_salary.employee_id
+LEFT JOIN employees_salary ON employees.id = employees_salary.employee_id
 WHERE montly_salary IS NULL;
 ```
 6. Вывести всех работников с названиями их должности.
 ```sql
 SELECT employee_name, role_name
-FROM employess
+FROM employees
 INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
 INNER JOIN roles ON roles_employees.role_id = roles.id;
 ```
-7.
-
-
-
+7. Вывести имена и должность только Java разработчиков.
+```sql
+SELECT employee_name,role_name
+FROM employees
+INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE roles_name LIKE '%Java developer%';
+```
+8. Вывести имена и должность только Python разработчиков.
+```sql
+SELECT empployee_name, role_name
+FROM employees
+INNER JOIN roles_employees ON emplyees.id - roles_employess.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE roles_name LIKE '%Python developer%';
+```
+9. Вывести имено и должность только QA-инженеров.
+```sql
+SELECT employee_name, role_name
+FROM employees
+INNER JOIN roles_employees ON employee.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE roles_name LIKE '%QA-engineer%';
+```
+10. Вывести имена и зарплаты Junior-специалистов.
+```sql
+SELECT employee_name, montly_salary
+FROM employees_salary
+INNER JOIN salary ON employees.id = employees_salary.employee_id
+INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE role_name LIKE '%Junior%';
+```
 
 
 
