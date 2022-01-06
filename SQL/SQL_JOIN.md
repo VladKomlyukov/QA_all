@@ -105,7 +105,7 @@ INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
 INNER JOIN roles ON roles_employees.role_id = roles.id
 WHERE role_name LIKE '%Junior%';
 ```
-14.Вывести сумму зарплат всех разработчиков на JavaScript
+14. Вывести сумму зарплат всех разработчиков на JavaScript
 ```sql
 SELECT SUM(montly_salary)
 FROM employees_salary
