@@ -159,4 +159,23 @@ INNER JOIN roles ON roles_employees.role_id = roles.id
 WHERE montly_salary BETWEEEN 1700 AND 2500
 ORDER BY montly_salary;
 ```
-
+20. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов, у которых ЗП меньше 2500
+```sql
+SELECT employee_name, role_name, montly_salary
+FROM employees
+LEFT JOIN employees_salary ON employees.id = employees_salary.employees_id
+INNER JOIN roles_employees ON employees.id - roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE montly_salary < 2500
+ORDER BY montly_salary;
+```
+21. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов, у которых ЗП равна 1100, 1500, 2000
+```sql
+SELECT employee_name, role_name, montly_salary
+FROM employees
+LEFT JOIN employees_salary ON employees.id = employees_salary.employees_id
+INNER JOIN roles_employees ON employees.id - roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE monthly_salary IN (1100, 1500, 2000)
+ORDER BY montly_salary;
+```
