@@ -10,7 +10,7 @@ SELECT employees_name, montly_salary
 FROM employees
 INNER JOIN employees_salary ON employess.id = employees_salary.employee_id
 ```
-2.Вывести всех работников, у которых ЗП меньше 2000.
+2. Вывести всех работников, у которых ЗП меньше 2000.
 ```sql
 SELECT employees_name, montly_salary
 FROM employees
@@ -78,8 +78,85 @@ INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
 INNER JOIN roles ON roles_employees.role_id = roles.id
 WHERE role_name LIKE '%Junior%';
 ```
-
-
-
-
+11. Вывести зарплаты Java разработчиков
+```sql
+SELECT montly_salary
+FROM employees_salary
+LEFT JOIN employees ON employees_salary.employee_id = employees.id
+INNER JOIN roles_employees ON employess.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE role_name LIKE '%Java Developer%';
+```
+12. Вывести имена и зарплаты Junior Python разработчиков
+```sql
+SELECT montly_salary
+FROM employees_salary
+LEFT JOIN employees ON employees_salary.employee_id = employees.id
+INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE role_name LIKE '%Python Developer%';
+```
+13. Вывести среднюю зарплату всех Junior специалистов
+```sql
+SELECT AVG(montly_salary)
+FROM employees_salary
+INNER JOIN employees ON employees_salary.employee_id = employees.id
+INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE role_name LIKE '%Junior%';
+```
+14.Вывести сумму зарплат всех разработчиков на JavaScript
+```sql
+SELECT SUM(montly_salary)
+FROM employees_salary
+INNER JOIN employees ON employees_salary.employee_id = employees.id
+INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE role_name LIKE '%JavaScript Developer%';
+```
+15. Вывести минимальную ЗП QA инженеров
+```sql
+SELECT MIN(montly_salary)
+FROM employees_salary
+INNER JOIN employees ON employees_salary.employee_id = employees.id
+INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE role_name LIKE '%QA engineer%';
+```
+16. Вывести максимальную ЗП QA инженеров
+```sql
+SELECT MAX(montly_salary)
+FROM employees_salary
+INNER JOIN employees ON employees_salary.employee_id = employees.id
+INNER JOIN roles_employees ON employees.id = roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE role_name LIKE '%QA engineer%';
+```
+17. Вывести количество QA инженеров
+```sql
+SELECT COUNT(montly_salary)
+FROM employees
+INNER JOIN roles_employees ON employees.id - roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE role_name LIKE '%QA engineer%';
+```
+18. Вывести имена, должности и ЗП всех специалистов по возрастанию
+```sql
+SELECT employee_name, role_name, montly_salary
+FROM employees
+LEFT JOIN employees_salary ON employees.id = employees_salary.employees_id
+INNER JOIN roles_employees ON employees.id - roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+ORDER BY montly_salary;
+```
+19. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов, у которых ЗП от 1700 до 2500
+```sql
+SELECT employee_name, role_name, montly_salary
+FROM employees
+LEFT JOIN employees_salary ON employees.id = employees_salary.employees_id
+INNER JOIN roles_employees ON employees.id - roles_employees.employee_id
+INNER JOIN roles ON roles_employees.role_id = roles.id
+WHERE montly_salary BETWEEEN 1700 AND 2500
+ORDER BY montly_salary;
+```
 
